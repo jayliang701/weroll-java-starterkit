@@ -8,8 +8,6 @@ public class User {
 
     private String password;
 
-    private String JS;
-
     public String getId() {
         return id;
     }
@@ -34,19 +32,11 @@ public class User {
         this.password = password;
     }
 
-    public String getJS() {
-        return JS;
-    }
-
-    public void setJS(String JS) {
-        this.JS = JS;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + ", JS='" + JS + '\'' +
+                ", username='" + username +
                 '}';
     }
 }
