@@ -23,7 +23,7 @@ public class UserAPI {
     public Object login(String username, String password, APIAction request) throws ServiceException {
         String token = null;
         try {
-//            token = userService.login(username, password);
+            token = userService.login(username, password);
             return token;
         } catch (Exception e) {
             throw ServiceException.wrapper(e);
@@ -31,7 +31,7 @@ public class UserAPI {
     }
 
     @Method(name = "info",
-            needLogin = false,
+            needLogin = true,
             params = {
 //                    @Param(name = "fields", type = "string"),
 //                    @Param(name = "password", type = "string")
