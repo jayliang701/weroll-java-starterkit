@@ -166,6 +166,11 @@
             <version>8.0.11</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jta-atomikos</artifactId>
+        </dependency>
+
         <!-- weroll -->
         <dependency>
             <groupId>com.magicfish</groupId>
