@@ -1,0 +1,12 @@
+#log
+logging:
+    level:
+        root: INFO
+
+setting:
+    env: localdev
+
+spring:
+    profiles:
+        include:
+            - web

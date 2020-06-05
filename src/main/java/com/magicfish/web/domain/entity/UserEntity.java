@@ -1,6 +1,8 @@
-package com.magicfish.web.model;
+package com.magicfish.web.domain.entity;
 
-public class User {
+public class UserEntity {
+
+    private static final long serialVersionUID = 1L;
 
     private String id;
 
@@ -9,6 +11,8 @@ public class User {
     private String password;
 
     private String JS;
+
+    private String status;
 
     public String getId() {
         return id;
@@ -42,11 +46,19 @@ public class User {
         this.JS = JS;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
+        return "UserEntity{" +
                 "id=" + id +
-                ", username='" + username + ", JS='" + JS + '\'' +
+                ", username='" + username + ", JS='" + JS + '\'' + ", status='" + status + '\'' +
                 '}';
     }
 }

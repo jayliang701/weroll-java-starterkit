@@ -1,9 +1,9 @@
-package com.magicfish.web.service;
+package com.magicfish.web.domain.service;
 
+import com.magicfish.web.domain.entity.UserEntity;
+import com.magicfish.web.domain.repository.UserRepository;
 import com.magicfish.weroll.security.jwt.SessionTokenProvider;
 import com.magicfish.weroll.security.jwt.identifier.UserPayload;
-import com.magicfish.web.dao.UserDao;
-import com.magicfish.web.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -12,13 +12,14 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service(value = "userService")
 public class UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     @Autowired
     private SessionTokenProvider sessionTokenProvider;
@@ -38,7 +39,14 @@ public class UserService {
         }
     }
 
-    public User getInfo(String id) {
-        return userDao.findById(id);
+    public UserEntity getInfo(String id) {
+        return userRepository.findById(id);
+    }
+
+    public List<UserEntity> search(String JS, String status) {
+        Map<String, Object> filter = new HashMap<>();
+        filter.put("JS", JS);
+        filter.put("status", status);
+        return userRepository.find("select * from user where JS=\"" + JS + "\"");
     }
 }
